@@ -17,19 +17,28 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Things";
 
+    private RecyclerView gpioRecycler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        saveGPIOServicesIntoDB();
         initView();
+        saveGPIOServicesIntoDB();
+        updateGPIOData();
     }
 
     private void initView() {
-        RecyclerView gpioRecycler = (RecyclerView) findViewById(R.id.gpio_recycler);
+        gpioRecycler = (RecyclerView) findViewById(R.id.gpio_recycler);
         gpioRecycler.setHasFixedSize(true);
         gpioRecycler.setLayoutManager(new LinearLayoutManager(this));
-        gpioRecycler.setAdapter(new GPIOAdapter(getGPIOServices()));
+        gpioRecycler.setAdapter(new GPIOAdapter());
+    }
+
+    private void updateGPIOData() {
+        GPIOAdapter adapter = (GPIOAdapter) gpioRecycler.getAdapter();
+        adapter.setServicesArray(getGPIOServices());
+        adapter.notifyDataSetChanged();
     }
 
     private void saveGPIOServicesIntoDB() {
