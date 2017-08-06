@@ -15,7 +15,7 @@ import java.util.List;
 public class GPIOAdapter extends RecyclerView.Adapter<GPIOAdapter.ViewHolder> {
     private List<GPIOService> servicesArray;
 
-    public GPIOAdapter(List<GPIOService> servicesArray) {
+    public void setServicesArray(List<GPIOService> servicesArray) {
         this.servicesArray = servicesArray;
     }
 
