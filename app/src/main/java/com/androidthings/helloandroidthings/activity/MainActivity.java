@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.androidthings.helloandroidthings.R;
 import com.androidthings.helloandroidthings.adapter.GPIOAdapter;
@@ -13,6 +14,8 @@ import com.google.android.things.pio.PeripheralManagerService;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "Things";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveGPIOServicesIntoDB() {
         PeripheralManagerService service = new PeripheralManagerService();
+        Log.v(TAG,service.getGpioList().toString());
         for (String name : service.getGpioList()) {
             GPIOService gpio = new GPIOService(name);
             gpio.save();
