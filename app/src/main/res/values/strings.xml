@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HelloAndroidThings</string>
+    <string name="database_name">HelloAndroidThings</string>
+    <string name="database_version">HelloAndroidThings</string>
+    <string name="database_query_log_enable">false</string>
+    <string name="database_package">com.androidthings.helloandroidthings</string>
 </resources>

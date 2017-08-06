@@ -22,15 +22,15 @@
 
     <meta-data
         android:name="DATABASE"
-        android:value="things.db" />
+        android:value="@string/database_name" />
     <meta-data
         android:name="VERSION"
-        android:value="1" />
+        android:value="@string/database_version" />
     <meta-data
         android:name="QUERY_LOG"
-        android:value="false" />
+        android:value="@string/database_query_log_enable" />
     <meta-data
         android:name="DOMAIN_PACKAGE_NAME"
-        android:value="com.androidthings.helloandroidthings" />
+        android:value="@string/database_package" />
 
 </manifest>
